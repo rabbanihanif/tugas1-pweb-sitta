@@ -6,7 +6,6 @@ Aplikasi web sederhana berbasis **HTML, CSS, dan JavaScript DOM** untuk simulasi
 - Login dengan validasi form
 - Tabel data stok bahan ajar (dataBahanAjar)
 - Pencarian nomor DO pada halaman tracking
-- Tema dark mode modern
 
 ## Struktur
 - `index.html` – halaman login
