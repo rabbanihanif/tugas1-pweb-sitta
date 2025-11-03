@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman</title>
+    <link rel="stylesheet" href="css/style1.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    
+<nav class="navbar">
+    <div class="nav-left">
+      <h1 class="logo">Dashboard</h1>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="stok.html">Informasi Bahan Ajar</a></li>
+      <li><a href="tracking.html">Tracking Pengiriman</a></li>
+      <li class="dropdown">
+        <a href="#">Laporan ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Monitoring Progress DO Bahan Ajar</a></li>
+          <li><a href="#">Rekap Bahan Ajar</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Histori Transaksi</a></li>
+    </ul>
+    <button id="logoutBtn" class="btn-logout">Logout</button>
+  </nav>
+    <main class="content">
+    <h2>Tracking Pengiriman Bahan Ajar</h2>
+    
+    <form id="trackingForm" class="tracking-form">
+        <div class="form-group">
+            <label for="doNumber">Nomor Delivery Order (DO)</label>
+            <input 
+                type="text" 
+                id="doNumber" 
+                placeholder="Masukkan Nomor" 
+                required>
+            <small class="error-message" id="doError"></small>
+        </div>
+        <button type="submit" class="btn-primary btn-search-tracking">Cari Status</button>
+    </form>
+    
+    <!-- hasil nomor delivery order  -->
+    <div id="trackingResult" class="tracking-result">
+        </div>
+
+</main>
+<script src="js/data.js"></script>
+    <script src="js/tracking.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

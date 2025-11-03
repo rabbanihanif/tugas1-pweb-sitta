@@ -1,0 +1,503 @@
+/* ========== Reset ========== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* font-family: "Inter", sans-serif; */
+  font-family: "Quicksand", sans-serif;
+  background-color: #F8F9FA;
+  color: #212529; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-body {
+  display: block;
+  align-items: unset;
+  justify-content: unset;
+  background-color: #F8F9FA;
+  min-height: 100vh;
+}
+
+/* ========== Layout ========== */
+.container {
+  width: 500px;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: #FFFFFF; /* Latar Card: Putih murni agar menonjol dari body */
+  padding: 20px;
+  text-align: center;
+}
+
+.login-card h1 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #6C757D; /* Teks subtitle: Abu-abu medium */
+  margin-bottom: 20px;
+}
+
+/* ========== Form ========== */
+.form-group {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #FFFFFF; /* Latar input: Putih */
+  border: 1px solid #CED4DA; /* Border input: Abu-abu muda */
+  border-radius: 6px;
+  color: #212529; /* Teks input: Abu-abu gelap */
+  font-size: 0.95rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3674B5; /* Border focus: Biru */
+  box-shadow: 0 0 0 3px rgba(241, 183, 36, 0.5); /* Shadow focus: Kuning */
+}
+
+.error-message {
+  color: #D9534F; /* Warna error: Merah lebih gelap */
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ========== Buttons ========== */
+.btn-primary {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #3674B5; /* Latar tombol: Biru */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+
+.btn-primary:hover {
+  background-color: #2A5A8E; /* Hover tombol: Biru lebih gelap */
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #333; /* Teks tombol sekunder: Gelap */
+  border: 1px solid #CED4DA; /* Border tombol sekunder: Abu-abu muda */
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+
+.btn-secondary:hover {
+  background-color: #E9ECEF; /* Hover tombol sekunder: Abu-abu sangat muda */
+}
+
+/* ========== Links ========== */
+.form-links {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+
+.form-links a {
+  color: #3674B5; /* Warna tautan: Biru */
+  text-decoration: none;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Modal ========== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Overlay */
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #FFFFFF; /* Latar modal: Putih */
+  border-radius: 8px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* =========================================================
+   ========== DASHBOARD LAYOUT & NAVBAR SECTION ==========
+   ========================================================= */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3674B5;
+  padding: 12px 24px;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Menu Navbar */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.nav-menu a:hover {
+  opacity: 0.8;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  color: #212529;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+  list-style: none;
+  z-index: 1000;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 14px;
+  color: #212529;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f1f3f5;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Tombol Logout */
+.btn-logout {
+  background-color: #f05c57;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-logout:hover {
+  background-color: #d9534f;
+}
+
+/* Konten Dashboard */
+.content {
+  max-width: 800px;
+  margin: 60px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 1.75rem;
+  color: #3674B5;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+/* halaman tracking */
+
+.tracking-form {
+    max-width: 100%;
+    margin-top: 20px;
+}
+.tracking-result {
+    text-align: left;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+    color: #333; 
+}
+.tracking-result h3 {
+    margin-bottom: 15px;
+    color: #3674B5; /* Warna Biru Anda */
+}
+.tracking-result table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.tracking-result th, .tracking-result td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.tracking-result th {
+    background-color: #e9ecef;
+}
+
+/* halaman stok */
+
+.container {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #3674B5;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3674B5;
+            padding-bottom: 10px;
+        }
+        #searchContainer {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        #searchInput {
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .stock-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+        .stock-table th, .stock-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .stock-table th {
+            background-color: #3674B5;
+            color: white;
+            font-weight: 600;
+        }
+        .stock-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .stock-table tbody tr:hover {
+            background-color: #e9ecef;
+        }
+        .stock-table .cover-img {
+            width: 50px;
+            height: auto;
+            border-radius: 4px;
+        }
+
+
+        /* ======================================================= */
+/* 1. STYLING UNTUK AREA HASIL PELACAKAN (.tracking-result) */
+/* (Dari CSS Awal Anda) */
+/* ======================================================= */
+.tracking-result {
+    margin-top: 30px;
+    padding: 0;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Detail Mahasiswa dan Pengiriman */
+.card-details {
+    padding: 20px;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.card-details h3, .status-section h3 {
+    font-size: 1.2rem;
+    color: #3674B5;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #E9ECEF;
+    margin-top: 0;
+}
+
+.card-details p {
+    line-height: 1.6;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.card-details strong {
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Styling untuk Area Status Pengiriman */
+.status-section {
+    padding: 20px;
+}
+
+/* Styling Tabel Status */
+.tracking-result table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+
+.tracking-result th, .tracking-result td {
+    padding: 12px 15px;
+    text-align: left;
+    border: none;
+}
+
+.tracking-result th {
+    background-color: #3674B5;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0; 
+}
+
+/* Styling untuk Baris Data (Striped/Zebra effect) */
+.tracking-result tbody tr:nth-child(even) {
+    background-color: #F8F9FA;
+}
+
+.tracking-result tbody tr:hover {
+    background-color: #E9ECEF;
+    cursor: default;
+}
+
+/* Border bawah yang halus untuk baris data */
+.tracking-result td {
+    border-bottom: 1px solid #E9ECEF;
+}
+
+/* Hapus border bawah pada baris terakhir di tabel */
+.tracking-result tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ======================================================= */
+/* 2. STYLING UNTUK REKAP BAHAN AJAR/STOK (.stock-table) */
+/* ======================================================= */
+
+#searchContainer {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+#searchInput {
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95rem;
+}
+.stock-table th, .stock-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.stock-table th {
+    background-color: #3674B5;
+    color: white;
+    font-weight: 600;
+}
+.stock-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+.stock-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+.stock-table .cover-img {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+}
